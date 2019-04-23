@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37080</versionUuid>
+    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37200</versionUuid>
     <rule>
         <name>AMS_GetUSerDetails</name>
         <uuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37023</uuid>
@@ -141,6 +141,21 @@
               choiceLabels: {"North America West", "North America East", "Europe", "Australia and Pacific"},
               choiceValues: {1, 2, 3, 4},
               value: 1
+            ),
+            #"SYSTEM_SYSRULES_cardLayout"(
+              contents: {},
+              style: "NONE",
+              height: "AUTO",
+              marginBelow: "STANDARD"
+            ),
+            #"SYSTEM_SYSRULES_billboardLayout"(
+              backgroundMedia: #"SYSTEM_SYSRULES_documentImage"(
+                document: #"SYSTEM_SYSRULES_EXAMPLE_BILLBOARD_IMAGE"()
+              ),
+              backgroundColor: "#f0f0f0",
+              overlayStyle: "DARK",
+              overlayContents: {},
+              marginBelow: "STANDARD"
             )
           },
           width: "MEDIUM"
@@ -156,6 +171,26 @@
               saveInto: local!pickedStatuses,
               choicelayout: "COMPACT",
               align: "RIGHT"
+            ),
+            #"SYSTEM_SYSRULES_hierarchyBrowserFieldTree"(
+              label: "Hierarchy Browser (Tree)",
+              labelPosition: "ABOVE",
+              pathValue: {3, 2},
+              nextLevelValues: enumerate(fv!nodeValue) + 1,
+              nodeConfigs: #"SYSTEM_SYSRULES_hierarchyBrowserFieldTreeNode"(
+                id: fv!nodeValue,
+                label: "Node " &amp; fv!nodeValue,
+                description: "Description for " &amp; fv!nodeValue,
+                details: "Details for " &amp; fv!nodeValue,
+                image: #"SYSTEM_SYSRULES_documentImage"(document: #"SYSTEM_SYSRULES_iconNewsEvent"(icon: "PERSON")),
+                isDrillable: true
+              )
+            ),
+            #"SYSTEM_SYSRULES_orgChartField"(
+              label: "Org Chart",
+              labelPosition: "ABOVE",
+              value: loggedInUser(),
+              saveInto: {}
             )
           }
         )
@@ -197,5 +232,6 @@
     <history>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37042"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37080"/>
+        <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37200"/>
     </history>
 </contentHaul>

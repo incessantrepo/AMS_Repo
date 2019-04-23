@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37259</versionUuid>
+    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37323</versionUuid>
     <rule>
         <name>AMS_GetUSerDetails</name>
         <uuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37023</uuid>
@@ -129,10 +129,32 @@
     }
   },
   {
+    #"SYSTEM_SYSRULES_milestoneField"(
+      label: "Milestone",
+      labelPosition: "ABOVE",
+      steps: {"Step 1", "Step 2", "Step 3"},
+      links: {},
+      active: 1
+    ),
     #"SYSTEM_SYSRULES_columnsLayout"(
       columns: {
         #"SYSTEM_SYSRULES_columnLayout"(
           contents: {
+            #"SYSTEM_SYSRULES_videoField"(
+              label: "Video",
+              labelPosition: "ABOVE",
+              videos: {}
+            ),
+            #"SYSTEM_SYSRULES_progressBarField"(
+              label: "Progress Bar",
+              labelPosition: "ABOVE",
+              percentage: 75
+            ),
+            #"SYSTEM_SYSRULES_webContentField_v1"(
+              label: "Web Content",
+              labelPosition: "ABOVE",
+              height: "MEDIUM"
+            ),
             /* This dropdown would run a save that requeries the list of opportunities for a different region. */
             #"SYSTEM_SYSRULES_dropdownField"(
               label: "Region",
@@ -254,5 +276,6 @@
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37080"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37200"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37259"/>
+        <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37323"/>
     </history>
 </contentHaul>

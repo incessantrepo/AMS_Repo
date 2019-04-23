@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37200</versionUuid>
+    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37259</versionUuid>
     <rule>
         <name>AMS_GetUSerDetails</name>
         <uuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37023</uuid>
@@ -172,6 +172,26 @@
               choicelayout: "COMPACT",
               align: "RIGHT"
             ),
+            #"SYSTEM_SYSRULES_pieChartField"(
+              label: "Pie Chart",
+              labelPosition: "ABOVE",
+              series: {
+                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series 1", data: 1),
+                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series 2", data: 2),
+                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series 3", data: 3)
+              },
+              showDataLabels: true
+            ),
+            #"SYSTEM_SYSRULES_lineChartField"(
+              label: "Line Chart",
+              labelPosition: "ABOVE",
+              categories: {"Category 1", "Category 2", "Category 3"},
+              series: {
+                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series", data: {1, 2, 3})
+              },
+              showLegend: true,
+              showTooltips: true
+            ),
             #"SYSTEM_SYSRULES_hierarchyBrowserFieldTree"(
               label: "Hierarchy Browser (Tree)",
               labelPosition: "ABOVE",
@@ -233,5 +253,6 @@
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37042"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37080"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37200"/>
+        <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37259"/>
     </history>
 </contentHaul>

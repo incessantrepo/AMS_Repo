@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37323</versionUuid>
+    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37680</versionUuid>
     <rule>
         <name>AMS_GetUSerDetails</name>
         <uuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37023</uuid>
@@ -15,232 +15,33 @@
             <system>false</system>
             <unlogged>false</unlogged>
         </visibility>
-        <definition>load(
-  /* This variable would normally be retrieved with a rule like rule!getAllStatuses(). */
-  local!statuses: {
-    {id: 1, name: "Qualification", icon: "filter"},
-    {id: 2, name: "Evaluation", icon: "search"},
-    {id: 3, name: "Decision", icon: "gavel"},
-    {id: 4, name: "Negotiation", icon: "comments"},
-    {id: 5, name: "Closed", icon: "check-circle"}
-  },
-  local!pickedStatuses: remove(local!statuses, {5}),
-  /* This variable would normally be retrieved with a rule like rule!getOpportunitiesForRegion(region: "NAW"). */
-  local!objects: {
-    {
-      id: 23,
-      name: "Any Town Bank",
-      industry: "Financial Services",
-      location: "Franklin, WA",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 1
+        <definition>{
+  #"SYSTEM_SYSRULES_cardLayout"(
+    contents: {},
+    style: "NONE",
+    height: "AUTO",
+    marginBelow: "STANDARD"
+  ),
+  #"SYSTEM_SYSRULES_cardLayout"(
+    contents: {
+      #"SYSTEM_SYSRULES_cardLayout"(
+        contents: {},
+        style: "NONE",
+        height: "AUTO",
+        marginBelow: "STANDARD"
+      )
     },
-    {
-      id: 47,
-      name: "Globex Corporation",
-      industry: "Real Estate",
-      location: "Boise, ID",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 1
-    },
-    {
-      id: 5,
-      name: "Nash Hotels",
-      industry: "Hospitality",
-      location: "Flagstaff, AZ",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 2
-    },
-    {
-      id: 52,
-      name: "Zibal Tax Services",
-      industry: "Financial Services",
-      location: "Los Angeles, CA",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 2
-    },
-    {
-      id: 135,
-      name: "Lorentz and Fitzgerald",
-      industry: "Legal Services",
-      location: "Provo, UT",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 2
-    },
-    {
-      id: 99,
-      name: "Tarkin Construction",
-      industry: "Construction",
-      location: "San Diego, CA",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 3
-    },
-    {
-      id: 91,
-      name: "Bossk Tourist Adventures",
-      industry: "Services",
-      location: "Carson City, NV",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 3
-    },
-    {
-      id: 144,
-      name: "Antilles Transport",
-      industry: "Transportation",
-      location: "Norfolk, OR",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 4
-    },
-    {
-      id: 144,
-      name: "Dune Office Automation",
-      industry: "Consulting",
-      location: "Oxford, WA",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 4
-    },
-    {
-      id: 98,
-      name: "Kaus Media",
-      industry: "Services",
-      location: "Liberty, UT",
-      dollar: round(rand() * 999, 0),
-      winConfidence: roundup(rand() * 100, 0),
-      duration: roundup(rand() * 40, 0),
-      status: 5
-    }
-  },
-  {
-    #"SYSTEM_SYSRULES_milestoneField"(
-      label: "Milestone",
-      labelPosition: "ABOVE",
-      steps: {"Step 1", "Step 2", "Step 3"},
-      links: {},
-      active: 1
-    ),
-    #"SYSTEM_SYSRULES_columnsLayout"(
-      columns: {
-        #"SYSTEM_SYSRULES_columnLayout"(
-          contents: {
-            #"SYSTEM_SYSRULES_videoField"(
-              label: "Video",
-              labelPosition: "ABOVE",
-              videos: {}
-            ),
-            #"SYSTEM_SYSRULES_progressBarField"(
-              label: "Progress Bar",
-              labelPosition: "ABOVE",
-              percentage: 75
-            ),
-            #"SYSTEM_SYSRULES_webContentField_v1"(
-              label: "Web Content",
-              labelPosition: "ABOVE",
-              height: "MEDIUM"
-            ),
-            /* This dropdown would run a save that requeries the list of opportunities for a different region. */
-            #"SYSTEM_SYSRULES_dropdownField"(
-              label: "Region",
-              labelPosition: "COLLAPSED",
-              placeholderLabel: "--- Select a Value ---",
-              choiceLabels: {"North America West", "North America East", "Europe", "Australia and Pacific"},
-              choiceValues: {1, 2, 3, 4},
-              value: 1
-            ),
-            #"SYSTEM_SYSRULES_cardLayout"(
-              contents: {},
-              style: "NONE",
-              height: "AUTO",
-              marginBelow: "STANDARD"
-            ),
-            #"SYSTEM_SYSRULES_billboardLayout"(
-              backgroundMedia: #"SYSTEM_SYSRULES_documentImage"(
-                document: #"SYSTEM_SYSRULES_EXAMPLE_BILLBOARD_IMAGE"()
-              ),
-              backgroundColor: "#f0f0f0",
-              overlayStyle: "DARK",
-              overlayContents: {},
-              marginBelow: "STANDARD"
-            )
-          },
-          width: "MEDIUM"
-        ),
-        #"SYSTEM_SYSRULES_columnLayout"(
-          contents: {
-            #"SYSTEM_SYSRULES_checkboxField"(
-              label: "Statuses to Display",
-              labelPosition: "COLLAPSED",
-              choiceLabels: local!statuses.name,
-              choiceValues: local!statuses,
-              value: local!pickedStatuses,
-              saveInto: local!pickedStatuses,
-              choicelayout: "COMPACT",
-              align: "RIGHT"
-            ),
-            #"SYSTEM_SYSRULES_pieChartField"(
-              label: "Pie Chart",
-              labelPosition: "ABOVE",
-              series: {
-                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series 1", data: 1),
-                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series 2", data: 2),
-                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series 3", data: 3)
-              },
-              showDataLabels: true
-            ),
-            #"SYSTEM_SYSRULES_lineChartField"(
-              label: "Line Chart",
-              labelPosition: "ABOVE",
-              categories: {"Category 1", "Category 2", "Category 3"},
-              series: {
-                #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series", data: {1, 2, 3})
-              },
-              showLegend: true,
-              showTooltips: true
-            ),
-            #"SYSTEM_SYSRULES_hierarchyBrowserFieldTree"(
-              label: "Hierarchy Browser (Tree)",
-              labelPosition: "ABOVE",
-              pathValue: {3, 2},
-              nextLevelValues: enumerate(fv!nodeValue) + 1,
-              nodeConfigs: #"SYSTEM_SYSRULES_hierarchyBrowserFieldTreeNode"(
-                id: fv!nodeValue,
-                label: "Node " &amp; fv!nodeValue,
-                description: "Description for " &amp; fv!nodeValue,
-                details: "Details for " &amp; fv!nodeValue,
-                image: #"SYSTEM_SYSRULES_documentImage"(document: #"SYSTEM_SYSRULES_iconNewsEvent"(icon: "PERSON")),
-                isDrillable: true
-              )
-            ),
-            #"SYSTEM_SYSRULES_orgChartField"(
-              label: "Org Chart",
-              labelPosition: "ABOVE",
-              value: loggedInUser(),
-              saveInto: {}
-            )
-          }
-        )
-      },
-      alignvertical: "MIDDLE"
-    )
-  }
-)</definition>
+    style: "NONE",
+    height: "AUTO",
+    marginBelow: "STANDARD"
+  ),
+  #"SYSTEM_SYSRULES_cardLayout"(
+    contents: {},
+    style: "NONE",
+    height: "AUTO",
+    marginBelow: "STANDARD"
+  )
+}</definition>
         <metadataExpr></metadataExpr>
         <preferredEditor>interface</preferredEditor>
         <offlineEnabled>false</offlineEnabled>
@@ -277,5 +78,6 @@
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37200"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37259"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37323"/>
+        <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37680"/>
     </history>
 </contentHaul>

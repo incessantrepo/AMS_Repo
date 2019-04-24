@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37680</versionUuid>
+    <versionUuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37803</versionUuid>
     <rule>
         <name>AMS_GetUSerDetails</name>
         <uuid>_a-0000e255-ca76-8000-23f0-01ef9001ef90_37023</uuid>
@@ -25,10 +25,34 @@
   #"SYSTEM_SYSRULES_cardLayout"(
     contents: {
       #"SYSTEM_SYSRULES_cardLayout"(
-        contents: {},
+        contents: {
+          #"SYSTEM_SYSRULES_barcodeField"(
+            label: "Barcode",
+            labelPosition: "ABOVE",
+            acceptedTypes: {},
+            saveInto: {},
+            refreshAfter: "UNFOCUS",
+            validations: {}
+          ),
+          #"SYSTEM_SYSRULES_videoField"(
+            label: "Video",
+            labelPosition: "ABOVE",
+            videos: {}
+          )
+        },
         style: "NONE",
         height: "AUTO",
         marginBelow: "STANDARD"
+      ),
+      #"SYSTEM_SYSRULES_lineChartField"(
+        label: "Line Chart",
+        labelPosition: "ABOVE",
+        categories: {"Category 1", "Category 2", "Category 3"},
+        series: {
+          #"SYSTEM_SYSRULES_chartSeries"(label: "Chart Series", data: {1, 2, 3})
+        },
+        showLegend: true,
+        showTooltips: true
       )
     },
     style: "NONE",
@@ -79,5 +103,6 @@
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37259"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37323"/>
         <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37680"/>
+        <historyInfo versionUuid="_a-0000e255-ca76-8000-23f0-01ef9001ef90_37803"/>
     </history>
 </contentHaul>
